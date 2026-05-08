@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Family genealogy tree">
+  <meta name="theme-color" content="#1a472a">
+  <title>Family Tree</title>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="manifest" href="data:application/json;base64,eyJuYW1lIjoiRmFtaWx5IFRyZWUiLCJzaG9ydF9uYW1lIjoiRmFtaWx5Iiwic3RhcnRfdXJsIjoiLi9pbmRleC5odG1sIiwiZGlzcGxheSI6InN0YW5kYWxvbmUiLCJiYWNrZ3JvdW5kX2NvbG9yIjoiI2ZmZiIsInRoZW1lX2NvbG9yIjoiIzFhNDcyYSJ9">
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <header class="site-header">
+    <h1>Family Tree</h1>
+    <nav aria-label="Primary">
+      <button id="menu-toggle" aria-expanded="false" aria-controls="nav-list" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul id="nav-list" class="nav-list">
+        <li><a href="#tree" aria-current="page">Tree</a></li>
+        <li><a href="#people">People</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </nav>
+    <search class="site-search">
+      <label for="search-input" class="visually-hidden">Search people</label>
+      <input type="search" id="search-input" placeholder="Find a person..." autocomplete="off">
+      <ul id="search-results" class="search-results" role="listbox" hidden></ul>
+    </search>
+  </header>
+
+  <main id="main">
+    <section id="tree" class="tree-section" aria-labelledby="tree-heading">
+      <h2 id="tree-heading" class="visually-hidden">Family Tree</h2>
+
+      <div class="view-controls">
+        <button class="view-btn active" data-view="pedigree" aria-pressed="true">Pedigree</button>
+        <button class="view-btn" data-view="descendants" aria-pressed="false">Descendants</button>
+      </div>
+
+      <div class="tree-container" id="tree-root">
+        <!-- Tree renders here -->
+      </div>
+    </section>
+
+    <section id="people" class="people-section" hidden>
+      <h2>People</h2>
+      <ul class="people-list" id="people-list"></ul>
+    </section>
+
+    <section id="about" class="about-section" hidden>
+      <h2>About</h2>
+      <p>Private family genealogy. No data leaves your device.</p>
+    </section>
+  </main>
+
+  <dialog id="person-modal" class="person-modal" aria-labelledby="modal-name">
+    <button class="modal-close" aria-label="Close">&times;</button>
+    <article>
+      <header>
+        <h3 id="modal-name"></h3>
+        <p id="modal-dates" class="life-dates"></p>
+      </header>
+      <dl class="person-details">
+        <div><dt>Birth</dt><dd id="modal-birth"></dd></div>
+        <div><dt>Death</dt><dd id="modal-death"></dd></div>
+        <div><dt>Spouse</dt><dd id="modal-spouse"></dd></div>
+        <div><dt>Children</dt><dd id="modal-children"></dd></div>
+      </dl>
+    </article>
+  </dialog>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
