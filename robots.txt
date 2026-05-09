@@ -1,0 +1,15 @@
+# robots.txt for Family Tree App
+# This file controls how search engines crawl your site
+
+User-agent: *
+Allow: /
+
+# Sitemap location (update with your actual URL)
+# Sitemap: https://YOUR-USERNAME.github.io/family-tree/sitemap.xml
+
+# Crawl delay (optional - be nice to servers)
+Crawl-delay: 10
+
+# Disallow sensitive paths if needed
+# Disallow: /data/
+# Disallow: /admin/

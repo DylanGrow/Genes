@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Page not found">
+  <meta name="theme-color" content="#1a472a">
+  <title>404 - Page Not Found | Family Tree</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background: linear-gradient(135deg, #1a472a 0%, #2d5a3d 100%);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      text-align: center;
+    }
+    
+    .container {
+      max-width: 600px;
+    }
+    
+    .error-code {
+      font-size: 8rem;
+      font-weight: 700;
+      line-height: 1;
+      margin-bottom: 1rem;
+      text-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      animation: fadeIn 0.5s ease-in;
+    }
+    
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      animation: fadeIn 0.7s ease-in;
+    }
+    
+    p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+      animation: fadeIn 0.9s ease-in;
+    }
+    
+    .tree-icon {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+      animation: sway 3s ease-in-out infinite;
+    }
+    
+    .buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeIn 1.1s ease-in;
+    }
+    
+    .btn {
+      display: inline-block;
+      padding: 0.875rem 2rem;
+      background: rgba(255,255,255,0.2);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+      border: 2px solid rgba(255,255,255,0.3);
+    }
+    
+    .btn:hover {
+      background: rgba(255,255,255,0.3);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    
+    .btn-primary {
+      background: rgba(255,255,255,0.95);
+      color: #1a472a;
+      border-color: transparent;
+    }
+    
+    .btn-primary:hover {
+      background: #fff;
+    }
+    
+    .suggestions {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.2);
+      animation: fadeIn 1.3s ease-in;
+    }
+    
+    .suggestions h2 {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      opacity: 0.9;
+    }
+    
+    .suggestions ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    
+    .suggestions a {
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .suggestions a:hover {
+      color: #fff;
+      text-decoration: underline;
+    }
+    
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes sway {
+      0%, 100% {
+        transform: rotate(-3deg);
+      }
+      50% {
+        transform: rotate(3deg);
+      }
+    }
+    
+    @media (max-width: 640px) {
+      .error-code {
+        font-size: 5rem;
+      }
+      
+      h1 {
+        font-size: 1.5rem;
+      }
+      
+      p {
+        font-size: 1rem;
+      }
+      
+      .buttons {
+        flex-direction: column;
+      }
+      
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="tree-icon">🌳</div>
+    <div class="error-code">404</div>
+    <h1>This Branch Doesn't Exist</h1>
+    <p>
+      Looks like you've wandered off the family tree! The page you're looking for 
+      couldn't be found. Let's get you back to exploring your ancestry.
+    </p>
+    
+    <div class="buttons">
+      <a href="/" class="btn btn-primary">🏠 Go Home</a>
+      <a href="javascript:history.back()" class="btn">← Go Back</a>
+    </div>
+    
+    <div class="suggestions">
+      <h2>Popular Pages</h2>
+      <ul>
+        <li><a href="/#tree">📊 View Family Tree</a></li>
+        <li><a href="/#people">👥 Browse People</a></li>
+        <li><a href="/#timeline">📅 Timeline View</a></li>
+        <li><a href="/#data">💾 Manage Data</a></li>
+      </ul>
+    </div>
+  </div>
+  
+  <script>
+    // Auto-redirect to home after 10 seconds
+    setTimeout(() => {
+      if (confirm('Page not found. Would you like to return to the home page?')) {
+        window.location.href = '/';
+      }
+    }, 10000);
+  </script>
+</body>
+</html>

@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Analytics Setup Guide - Family Tree</title>
+</head>
+<body>
+<!--
+  ═══════════════════════════════════════════════════════════════════════════
+  ANALYTICS SETUP GUIDE FOR FAMILY TREE APP
+  ═══════════════════════════════════════════════════════════════════════════
+  
+  This file contains templates for adding analytics to your Family Tree app.
+  Choose ONE option below and add it to your index.html file.
+  
+  ⚠️ PRIVACY NOTE: Analytics track user behavior. Consider privacy implications
+  before adding tracking to a family genealogy app. You may want to:
+  - Anonymize IP addresses
+  - Disable demographic tracking
+  - Add a privacy policy
+  - Get user consent (GDPR/CCPA compliance)
+  
+  ═══════════════════════════════════════════════════════════════════════════
+-->
+
+<!-- 
+  ═══════════════════════════════════════════════════════════════════════════
+  OPTION 1: GOOGLE ANALYTICS 4 (GA4)
+  ═══════════════════════════════════════════════════════════════════════════
+  
+  Most popular analytics platform. Free tier available.
+  
+  Setup:
+  1. Go to https://analytics.google.com/
+  2. Create a new GA4 property
+  3. Get your Measurement ID (format: G-XXXXXXXXXX)
+  4. Replace G-XXXXXXXXXX below with your actual ID
+  5. Add this code to index.html BEFORE the closing </head> tag
+-->
+
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  
+  // Basic configuration
+  gtag('config', 'G-XXXXXXXXXX', {
+    'anonymize_ip': true,              // Anonymize IP addresses (privacy)
+    'cookie_flags': 'SameSite=None;Secure', // Cookie security
+    'allow_google_signals': false,     // Disable demographic tracking
+    'allow_ad_personalization_signals': false // Disable ad personalization
+  });
+  
+  // Track custom events (optional)
+  function trackEvent(eventName, eventParams) {
+    gtag('event', eventName, eventParams);
+  }
+  
+  // Example: Track when user adds a person
+  // trackEvent('add_person', { person_id: 'I123' });
+  
+  // Example: Track when user exports data
+  // trackEvent('export_data', { format: 'json' });
+</script>
+
+<!-- 
+  ═══════════════════════════════════════════════════════════════════════════
+  OPTION 2: PLAUSIBLE ANALYTICS (Privacy-Friendly)
+  ═══════════════════════════════════════════════════════════════════════════
+  
+  Privacy-focused, GDPR compliant, no cookies, lightweight.
+  
+  Setup:
+  1. Go to https://plausible.io/ (paid service, ~$9/month)
+  2. Add your domain
+  3. Replace yourdomain.com below with your actual domain
+  4. Add this code to index.html BEFORE the closing </head> tag
+-->
+
+<!-- Plausible Analytics -->
+<script defer data-domain="yourdomain.com" src="https://plausible.io/js/script.js"></script>
+<script>
+  // Track custom events (optional)
+  window.plausible = window.plausible || function() { 
+    (window.plausible.q = window.plausible.q || []).push(arguments) 
+  };
+  
+  // Example: Track when user adds a person
+  // plausible('Add Person');
+  
+  // Example: Track when user exports data
+  // plausible('Export Data', { props: { format: 'json' } });
+</script>
+
+<!-- 
+  ═══════════════════════════════════════════════════════════════════════════
+  OPTION 3: SIMPLE ANALYTICS (Privacy-Friendly)
+  ═══════════════════════════════════════════════════════════════════════════
+  
+  Privacy-focused, GDPR compliant, no cookies, simple interface.
+  
+  Setup:
+  1. Go to https://simpleanalytics.com/ (paid service, ~$9/month)
+  2. Add your domain
+  3. Add this code to index.html BEFORE the closing </head> tag
+-->
+
+<!-- Simple Analytics -->
+<script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+<noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt="" referrerpolicy="no-referrer-when-downgrade" /></noscript>
+
+<!-- 
+  ═══════════════════════════════════════════════════════════════════════════
+  OPTION 4: UMAMI (Self-Hosted, Open Source)
+  ═══════════════════════════════════════════════════════════════════════════
+  
+  Self-hosted, privacy-focused, open source, free.
+  
+  Setup:
+  1. Deploy Umami: https://umami.is/docs/install
+  2. Create a website in Umami dashboard
+  3. Get your tracking code
+  4. Replace the script src below with your Umami instance URL
+  5. Replace data-website-id with your website ID
+  6. Add this code to index.html BEFORE the closing </head> tag
+-->
+
+<!-- Umami Analytics -->
+<script async defer 
+  data-website-id="your-website-id" 
+  src="https://your-umami-instance.com/umami.js">
+</script>
+
+<!-- 
+  ═══════════════════════════════════════════════════════════════════════════
+  OPTION 5: CLOUDFLARE WEB ANALYTICS (Free)
+  ═══════════════════════════════════════════════════════════════════════════
+  
+  Free, privacy-focused, no cookies, works with Cloudflare Pages.
+  
+  Setup:
+  1. Go to Cloudflare Dashboard → Web Analytics
+  2. Add your site
+  3. Copy the beacon token
+  4. Replace YOUR-BEACON-TOKEN below
+  5. Add this code to index.html BEFORE the closing </head> tag
+-->
+
+<!-- Cloudflare Web Analytics -->
+<script defer 
+  src='https://static.cloudflareinsights.com/beacon.min.js' 
+  data-cf-beacon='{"token": "YOUR-BEACON-TOKEN"}'>
+</script>
+
+<!-- 
+  ═══════════════════════════════════════════════════════════════════════════
+  OPTION 6: NO ANALYTICS (Privacy First)
+  ═══════════════════════════════════════════════════════════════════════════
+  
+  Don't add any analytics. Your users' privacy is fully protected.
+  
+  This is the recommended option for a family genealogy app where privacy
+  is paramount. You can still track usage through:
+  - GitHub repository insights (stars, forks, traffic)
+  - Server logs (if self-hosting)
+  - User feedback and surveys
+-->
+
+<!-- 
+  ═══════════════════════════════════════════════════════════════════════════
+  CUSTOM EVENT TRACKING EXAMPLES
+  ═══════════════════════════════════════════════════════════════════════════
+  
+  Add these to your JavaScript files to track specific user actions:
+-->
+
+<script>
+// Example: Track when user adds a person
+document.getElementById('add-person-btn')?.addEventListener('click', () => {
+  // Google Analytics
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'add_person', {
+      event_category: 'engagement',
+      event_label: 'Add Person Button'
+    });
+  }
+  
+  // Plausible
+  if (typeof plausible !== 'undefined') {
+    plausible('Add Person');
+  }
+});
+
+// Example: Track when user exports data
+document.getElementById('export-data-btn')?.addEventListener('click', () => {
+  // Google Analytics
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'export_data', {
+      event_category: 'data',
+      event_label: 'Export JSON'
+    });
+  }
+  
+  // Plausible
+  if (typeof plausible !== 'undefined') {
+    plausible('Export Data', { props: { format: 'json' } });
+  }
+});
+
+// Example: Track search usage
+document.getElementById('search-input')?.addEventListener('input', (e) => {
+  if (e.target.value.length > 2) {
+    // Google Analytics
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'search', {
+        search_term: e.target.value
+      });
+    }
+  }
+});
+
+// Example: Track view changes
+document.querySelectorAll('.view-btn').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    const view = e.target.dataset.view;
+    
+    // Google Analytics
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'view_change', {
+        event_category: 'navigation',
+        event_label: view
+      });
+    }
+    
+    // Plausible
+    if (typeof plausible !== 'undefined') {
+      plausible('View Change', { props: { view: view } });
+    }
+  });
+});
+</script>
+
+<!-- 
+  ═══════════════════════════════════════════════════════════════════════════
+  PRIVACY POLICY TEMPLATE
+  ═══════════════════════════════════════════════════════════════════════════
+  
+  If you add analytics, you should also add a privacy policy.
+  Create a privacy.html file with this content:
+-->
+
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Privacy Policy - Family Tree</title>
+</head>
+<body>
+  <h1>Privacy Policy</h1>
+  
+  <h2>Data Collection</h2>
+  <p>
+    This website uses [Analytics Provider] to collect anonymous usage statistics.
+    We collect:
+  </p>
+  <ul>
+    <li>Pages visited</li>
+    <li>Time spent on site</li>
+    <li>Browser and device information</li>
+    <li>General location (country/city level)</li>
+  </ul>
+  
+  <h2>Your Family Data</h2>
+  <p>
+    All family tree data is stored locally in your browser. We do not:
+  </p>
+  <ul>
+    <li>Store your family data on our servers</li>
+    <li>Share your data with third parties</li>
+    <li>Track individual family members</li>
+    <li>Use your data for advertising</li>
+  </ul>
+  
+  <h2>Cookies</h2>
+  <p>
+    We use cookies only for:
+  </p>
+  <ul>
+    <li>Storing your family tree data locally</li>
+    <li>Analytics (if enabled)</li>
+  </ul>
+  
+  <h2>Your Rights</h2>
+  <p>
+    You can:
+  </p>
+  <ul>
+    <li>Export your data at any time</li>
+    <li>Delete your data from your browser</li>
+    <li>Opt out of analytics by using browser extensions</li>
+  </ul>
+  
+  <h2>Contact</h2>
+  <p>
+    Questions? Contact us at: [your-email@example.com]
+  </p>
+</body>
+</html>
+-->
+
+<!-- 
+  ═══════════════════════════════════════════════════════════════════════════
+  GDPR CONSENT BANNER (Optional)
+  ═══════════════════════════════════════════════════════════════════════════
+  
+  If you have EU users, you may need a consent banner.
+  Add this to your index.html BEFORE the closing </body> tag:
+-->
+
+<div id="cookie-consent" style="display:none; position:fixed; bottom:0; left:0; right:0; background:#1a472a; color:#fff; padding:1rem; text-align:center; z-index:9999;">
+  <p style="margin:0 0 1rem 0;">
+    We use cookies to improve your experience. By using this site, you agree to our use of cookies.
+    <a href="/privacy.html" style="color:#fff; text-decoration:underline;">Learn more</a>
+  </p>
+  <button onclick="acceptCookies()" style="background:#fff; color:#1a472a; border:none; padding:0.5rem 2rem; border-radius:4px; cursor:pointer; font-weight:600;">
+    Accept
+  </button>
+  <button onclick="declineCookies()" style="background:transparent; color:#fff; border:2px solid #fff; padding:0.5rem 2rem; border-radius:4px; cursor:pointer; margin-left:1rem;">
+    Decline
+  </button>
+</div>
+
+<script>
+function acceptCookies() {
+  localStorage.setItem('cookieConsent', 'accepted');
+  document.getElementById('cookie-consent').style.display = 'none';
+  // Initialize analytics here
+  initAnalytics();
+}
+
+function declineCookies() {
+  localStorage.setItem('cookieConsent', 'declined');
+  document.getElementById('cookie-consent').style.display = 'none';
+  // Don't initialize analytics
+}
+
+// Check consent on page load
+window.addEventListener('DOMContentLoaded', () => {
+  const consent = localStorage.getItem('cookieConsent');
+  if (!consent) {
+    document.getElementById('cookie-consent').style.display = 'block';
+  } else if (consent === 'accepted') {
+    initAnalytics();
+  }
+});
+
+function initAnalytics() {
+  // Initialize your chosen analytics here
+  console.log('Analytics initialized');
+}
+</script>
+
+<!-- 
+  ═══════════════════════════════════════════════════════════════════════════
+  RECOMMENDATIONS
+  ═══════════════════════════════════════════════════════════════════════════
+  
+  For a family genealogy app, we recommend:
+  
+  1. NO ANALYTICS (Best for privacy)
+     - Users trust you with sensitive family data
+     - No tracking = maximum privacy
+     - Use GitHub insights instead
+  
+  2. PRIVACY-FOCUSED ANALYTICS (If you need data)
+     - Plausible or Simple Analytics
+     - No cookies, GDPR compliant
+     - Transparent about what you track
+  
+  3. SELF-HOSTED (If you want control)
+     - Umami (open source, free)
+     - Full control over data
+     - No third-party dependencies
+  
+  ⚠️ AVOID: Google Analytics for sensitive family data unless absolutely necessary
+  
+  ═══════════════════════════════════════════════════════════════════════════
+-->
+
+</body>
+</html>

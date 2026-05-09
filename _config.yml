@@ -1,0 +1,29 @@
+# GitHub Pages Configuration for Family Tree App
+# This ensures proper deployment as a static site
+
+# Disable Jekyll processing (we're using vanilla HTML/CSS/JS)
+plugins: []
+exclude:
+  - node_modules/
+  - .git/
+  - .gitignore
+  - README.md
+  - LICENSE
+  - "*.md"
+  - .vscode/
+
+# Enable relative links
+relative_links:
+  enabled: true
+  collections: false
+
+# Site settings
+title: Family Tree
+description: Privacy-first genealogy application
+baseurl: "" # Leave empty for root deployment or set to repo name for project pages
+url: "" # Will be set automatically by GitHub Pages
+
+# Build settings
+markdown: kramdown
+
+# Made with Bob

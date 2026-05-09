@@ -1,0 +1,19 @@
+# Custom Domain Configuration for GitHub Pages
+# 
+# To use a custom domain:
+# 1. Rename this file to "CNAME" (remove .example)
+# 2. Replace the domain below with your actual domain
+# 3. Configure DNS settings at your domain registrar
+#
+# Example: www.yourfamilytree.com
+# 
+# DNS Configuration:
+# - CNAME record: www -> YOUR-USERNAME.github.io
+# - A records for apex domain:
+#   185.199.108.153
+#   185.199.109.153
+#   185.199.110.153
+#   185.199.111.153
+#
+# Uncomment and replace with your domain:
+# www.yourfamilytree.com

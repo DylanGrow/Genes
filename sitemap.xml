@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- 
+    Sitemap for Family Tree App
+    Update the base URL with your actual GitHub Pages URL
+    Example: https://YOUR-USERNAME.github.io/family-tree/
+  -->
+  
+  <!-- Home Page / Tree View -->
+  <url>
+    <loc>https://YOUR-USERNAME.github.io/family-tree/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <!-- Tree Section -->
+  <url>
+    <loc>https://YOUR-USERNAME.github.io/family-tree/#tree</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- People Section -->
+  <url>
+    <loc>https://YOUR-USERNAME.github.io/family-tree/#people</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Timeline Section -->
+  <url>
+    <loc>https://YOUR-USERNAME.github.io/family-tree/#timeline</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Data Management Section -->
+  <url>
+    <loc>https://YOUR-USERNAME.github.io/family-tree/#data</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <!-- About Section -->
+  <url>
+    <loc>https://YOUR-USERNAME.github.io/family-tree/#about</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <!-- 
+    Notes:
+    - Replace YOUR-USERNAME with your GitHub username
+    - Replace family-tree with your repository name if different
+    - Update lastmod dates when you make significant changes
+    - changefreq indicates how often the page typically changes
+    - priority indicates relative importance (0.0 to 1.0)
+    
+    After deployment, submit this sitemap to:
+    - Google Search Console: https://search.google.com/search-console
+    - Bing Webmaster Tools: https://www.bing.com/webmasters
+  -->
+</urlset>
+
+<!-- Made with Bob -->
